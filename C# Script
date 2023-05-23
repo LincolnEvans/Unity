@@ -1,1 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class turngreen : MonoBehaviour
+{
+    private Color grn;
+    // Start is called before the first frame update
+    void Start()
+    {
+        grn = new Color32(127, 255, 0, 255);
+        Debug.Log("Start!");
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        // Use the Console to understand what your code is doing
+        Debug.Log("HIT DETECTED!");
+
+        // Remove any material already on the "lisa" GameObject then set the color to be green
+        GameObject.FindWithTag("Player").GetComponent<Renderer>().material = null;
+        GameObject.FindWithTag("Player").GetComponent<Renderer>().material.color = grn;
+        //GameObject.FindWithTag("plat").GetComponent<Renderer>().material.color = grn;
+    }
+}
 
